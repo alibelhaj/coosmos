@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <a class="btn btn-primary" href="{{ path('add-links',{'marque':marque}) }}" role="button">Ajouter</a>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">description</th>
+            <th scope="col">Image</th>
+            <th scope="col">Marque</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <th scope="row">{{ item.productName }}</th>
+                <th scope="row">{{ item.shortDescription }}</th>
+                <th scope="row">{{ item.productImage }}</th>
+                <th scope="row">{{ item.Marque }}</th>
+                {#<th scope="row"><a class="btn btn-primary" href="{{ path('list-links',{'marque':item.id}) }}" role="button">Link</a></th>#}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

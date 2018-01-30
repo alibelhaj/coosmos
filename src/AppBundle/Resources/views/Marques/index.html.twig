@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Marque</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <th scope="row">{{ item.name }}</th>
+                <th scope="row">{% if item.etat==1 %}Oui{% else %}Non{% endif %}</th>
+                <th scope="row"><a class="btn btn-primary" href="{{ path('list-links',{'marque':item.id}) }}" role="button">Link</a></th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
