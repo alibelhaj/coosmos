@@ -47,9 +47,15 @@ class Links
     protected $productPrice;
 
     /**
-     * @ODM\ReferenceOne(targetDocument="Marques", inversedBy="links")
+     * @ODM\ReferenceOne(targetDocument="Category", inversedBy="links")
      */
-    private $marque;
+    private $category;
+
+    /**
+     * @ODM\Field(name="link", type="string")
+     */
+
+    protected $link;
 
     public function __toString()
     {
@@ -155,24 +161,46 @@ class Links
     }
 
     /**
-     * Set marque
+     * Set category
      *
-     * @param \AppBundle\Document\Marques $marque
+     * @param \AppBundle\Document\Category $category
      * @return $this
      */
-    public function setMarque(\AppBundle\Document\Marques $marque)
+    public function setCategory(\AppBundle\Document\Category $category)
     {
-        $this->marque = $marque;
+        $this->category = $category;
         return $this;
     }
 
     /**
-     * Get marque
+     * Get category
      *
-     * @return \AppBundle\Document\Marques $marque
+     * @return \AppBundle\Document\Category $category
      */
-    public function getMarque()
+    public function getCategory()
     {
-        return $this->marque;
+        return $this->category;
+    }
+
+    /**
+     * Set link
+     *
+     * @param string $link
+     * @return $this
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+        return $this;
+    }
+
+    /**
+     * Get link
+     *
+     * @return string $link
+     */
+    public function getLink()
+    {
+        return $this->link;
     }
 }

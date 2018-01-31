@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <a class="btn btn-primary" href="{{ path('add-categories',{'marqueId':marque}) }}" role="button">Ajouter</a>
+    <a class="btn btn-default" href="{{ path('list-marque') }}" role="button">Retour</a>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Marque</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <th scope="row">{{ item.name }}</th>
+                <th scope="row">{{ item.marque }}</th>
+                <th scope="row">
+                    <a class="btn btn-primary" href="{{ path('add-categories',{'id':item.id,'marqueId':marque}) }}" role="button">Editer</a>
+                    <a class="btn btn-danger" href="{{ path('delete-categories',{'id':item.id,'marqueId':marque}) }}" role="button">Supprimer</a>
+                </th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -2,14 +2,14 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Document\Links;
+use AppBundle\Document\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class LinksType extends AbstractType
+class CategoryType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -17,16 +17,11 @@ class LinksType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('productName', TextType::class, array(
+            ->add('name', TextType::class, array(
                 'required' => true,
-                'label' => 'Nom produit'
+                'label' => 'Nom Cat?gorie'
             ))
-            ->add('shortDescription', TextType::class, array(
-                'required' => true,
-                'label' => 'Court description'
-            ))
-            ->add('productImage', TextType::class, array('label' => 'Image'))
-            ->add('productPrice', TextType::class, array('label' => 'Prix'))
+            ->add('link', TextType::class, array('label' => 'Lien'))
             ->add('save', SubmitType::class, array('attr' => array('class' => 'btn-primary')))
         ;
     }
@@ -37,8 +32,7 @@ class LinksType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => Links::class,
-            //'attr'=>array('novalidate'=>'novalidate')
+            'data_class' => Category::class,
         ));
     }
 
@@ -47,7 +41,7 @@ class LinksType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_links_add';
+        return 'appbundle_category_add';
     }
 
 

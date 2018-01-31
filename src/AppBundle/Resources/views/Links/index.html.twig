@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <a class="btn btn-primary" href="{{ path('add-links',{'marque':marque}) }}" role="button">Ajouter</a>
+    <a class="btn btn-default" href="{{ path('list-marque') }}" role="button">Retour</a>
 
     <table class="table table-striped">
         <thead>
